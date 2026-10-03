@@ -18,6 +18,7 @@ from pathlib import Path
 KNOWN_SKILLS = (
     "browser-cdp",
     "story",
+    "story-branch",
     "story-cover",
     "story-deslop",
     "story-import",

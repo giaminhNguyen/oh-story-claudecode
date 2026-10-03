@@ -12,6 +12,25 @@ compare 链接；小节名使用 Keep a Changelog 的六个英文类别（`Added
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-10-03
+
+> 本版 setup_skill_version 升至 1.3.3，gents_version 保持 34。安装与升级源指向上游与本 fork。
+
+v0.9.0 新增第 14 个 skill story-branch（分支续写备料工具）。
+
+### Added
+
+- **新增第 14 个 skill story-branch**：从既有作品提取正典、生成分支候选、落定分支简报、播种写作工程。四个子命令：nalyze（提取正典）、explore（创意变异引擎生成候选）、create（落定分支简报）、handoff（播种写作工程）。skill 只备料，不写正文，正文由 story-long-write / story-short-write 自带。
+- **分支创意探索引擎**：explore 从「正典哪些假设、角色、身份、信息分布、因果关系可以被变形」出发，而非从固定套路出发。支持叙事角色、身份意识、记忆知识、目标同盟、时间因果、世界规则等多轴变异，覆盖无超自然机制分支与不可靠叙事者分支，拦截默认套路执行，知识优势随分歧扩大而衰减。
+- **分支库存储与 ID**：分支库/{源ID}/正典.md、分支库/{源ID}/分支提案.md、分支库/{源ID}/分支/{源ID}-B0X.md，与既有 拆文库/ 同级同风格。
+- **全平台适配层命令**：ZCode、OpenCode、Antigravity、Codex、Claude Code 适配层已全量同步 story-branch 命令与路由行。
+
+### Changed
+
+- **版本与契约升级**：Oh Story 版本升至 0.9.0，setup_skill_version 升至 1.3.3。
+- **安装源与升级源**：安装入口更新指引支持 giaminhNguyen/oh-story-claudecode，保留对上游 zenstory-ai/oh-story-claudecode 的明确出处声明。
+
+
 ## [0.8.4] - 2026-09-27
 
 > 只改了工作台，技能正文、`agents_version` 与助手模板都没变：更新技能包即可。
@@ -1219,7 +1238,8 @@ npx skills add zenstory-ai/oh-story-claudecode -y -g
 - 初始版本：长篇/短篇写作、拆文、扫榜、去 AI 味、浏览器操控
 - 用 52000+ 本真实数据增强知识库
 
-[Unreleased]: https://github.com/zenstory-ai/oh-story-claudecode/compare/v0.8.4...HEAD
+[Unreleased]: https://github.com/zenstory-ai/oh-story-claudecode/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/zenstory-ai/oh-story-claudecode/compare/v0.8.4...v0.9.0
 [0.8.4]: https://github.com/zenstory-ai/oh-story-claudecode/compare/v0.8.3...v0.8.4
 [0.8.3]: https://github.com/zenstory-ai/oh-story-claudecode/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/zenstory-ai/oh-story-claudecode/compare/v0.8.1...v0.8.2

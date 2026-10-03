@@ -119,6 +119,7 @@ metadata: {"openclaw":{"source":"https://github.com/zenstory-ai/oh-story-claudec
 | 导入完想审查质量 | story-review | `/story-review` |
 | 想拆一本外部对标书 | story-long-analyze / story-short-analyze | `/story-long-analyze` / `/story-short-analyze` |
 | 从零开新书 | story-long-write / story-short-write | `/story-long-write` + "开书" / `/story-short-write` |
+| 想基于导入书做分支续写 | story-branch | `/story-branch analyze` |
 | 项目未装写作环境 | story-setup | `/story-setup` |
 
 ## 语言

@@ -297,7 +297,8 @@ try {
 
   const compact = { system: [] };
   await hooks.session.compaction(compact);
-  assert(compact.system.some((part) => part.type === "text" && part.text.includes("Writing context: book/追踪/上下文.md")));
+  const expectedContext = path.join("book", "追踪", "上下文.md");
+  assert(compact.system.some((part) => part.type === "text" && (part.text.includes("Writing context: book/追踪/上下文.md") || part.text.includes(`Writing context: ${expectedContext}`))));
 
   console.log("OK: OpenCode plugin guards outlines and reports after-write findings behaviorally");
 } finally {

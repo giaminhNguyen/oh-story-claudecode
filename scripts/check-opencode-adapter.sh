@@ -229,16 +229,20 @@ external.mkdir()
 write_agent(link_src / "a.md", "a")
 (link_src_root / "CLAUDE.md.tmpl").write_text("instructions\n", encoding="utf-8")
 (external / "a.md").write_text("external sentinel\n", encoding="utf-8")
-(link_dst / "agents").symlink_to(external, target_is_directory=True)
-before_external = snapshot(external)
 try:
-    run_normal(link_root)
-except ValueError:
+    (link_dst / "agents").symlink_to(external, target_is_directory=True)
+except (OSError, NotImplementedError):
     pass
 else:
-    raise SystemExit("sync-opencode must reject a symlinked agents directory")
-if snapshot(external) != before_external:
-    raise SystemExit("sync-opencode followed agents symlink and modified external files")
+    before_external = snapshot(external)
+    try:
+        run_normal(link_root)
+    except ValueError:
+        pass
+    else:
+        raise SystemExit("sync-opencode must reject a symlinked agents directory")
+    if snapshot(external) != before_external:
+        raise SystemExit("sync-opencode followed agents symlink and modified external files")
 PY
 
 echo "  OK OpenCode generated-file failures roll back without replacing the adapter root"

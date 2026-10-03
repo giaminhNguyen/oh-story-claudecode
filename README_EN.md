@@ -24,7 +24,7 @@
 <p align="center">
   <a href="https://github.com/zenstory-ai/oh-story-claudecode/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/zenstory-ai/oh-story-claudecode?style=flat-square&color=22D3EE&logo=github&logoColor=white&label=Stars"></a>
   <a href="https://github.com/zenstory-ai/oh-story-claudecode/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/zenstory-ai/oh-story-claudecode?style=flat-square&color=081431&label=Release"></a>
-  <img alt="Skills 13" src="https://img.shields.io/badge/Skills-13-081431?style=flat-square">
+  <img alt="Skills 14" src="https://img.shields.io/badge/Skills-14-081431?style=flat-square">
   <a href="./LICENSE"><img alt="License MIT" src="https://img.shields.io/badge/License-MIT-1F6FEB?style=flat-square"></a>
 </p>
 
@@ -38,7 +38,7 @@
 ## What it is
 
 Oh Story covers the whole web-fiction pipeline, long-form and short: **chart scanning → deconstructing bestsellers → outline and prose → de-AI editing → cover art**.
-It installs as 13 skills into the coding agent you already use; the writing model is that agent's model. No GPU, no separate model setup.
+It installs as 14 skills into the coding agent you already use; the writing model is that agent's model. No GPU, no separate model setup.
 
 - **The file system is the memory** — settings, outlines, prose and continuity tracking are maintained as separate files. A several-hundred-chapter novel does not lean on conversation memory, and context compaction does not lose your foreshadowing.
 - **Deterministic checks and gates** — writing prose without a chapter blueprint is blocked; after each write, truncation, engineering vocabulary and common AI phrasing are scanned automatically. 7 specialist agents, 8 hooks and 100+ methodology files load on demand.
@@ -52,13 +52,15 @@ Four throughlines: reverse-engineering hits · modular plot recombination · lay
 
 ## Installation
 
+> **Fork Notice**: This repository is a fork of [zenstory-ai/oh-story-claudecode](https://github.com/zenstory-ai/oh-story-claudecode), preserving full upstream credits while adding the `story-branch` skill.
+
 ### ClawHub
 
 ClawHub distribution is governed by the repository's [explicit publish inventory](.clawhub/publish.json), with discovery through [ClawHub](https://clawhub.ai/). A skill-specific link is added here only after its publisher, version, and anonymous accessibility are verified, so this README never presents a nonexistent listing as live.
 
 
 ```bash
-npx skills add zenstory-ai/oh-story-claudecode -y -g
+npx skills add giaminhNguyen/oh-story-claudecode -y -g
 ```
 
 `-g` installs globally for every directory; drop it to install into the current directory only. **To update, run the same command again.**
@@ -66,7 +68,7 @@ npx skills add zenstory-ai/oh-story-claudecode -y -g
 You can also just tell your agent (any platform that can import a GitHub repo or skill):
 
 ```
-Install this skill https://github.com/zenstory-ai/oh-story-claudecode
+Install this skill https://github.com/giaminhNguyen/oh-story-claudecode
 ```
 
 Then run `/story-setup` from your writing-project root (`$story-setup` in Codex) to deploy hooks / agents / references, **and start a fresh session**. Re-run `/story-setup` after every upgrade.

@@ -269,6 +269,31 @@
       "path": "skills/story-review/references/batch-review.md",
       "budget": 1000,
       "why": "v0.8.2：多章分批审查才读的跨批状态、连续性与乱序提醒，由审稿入口迁出。"
+    },
+    {
+      "path": "skills/story-branch/SKILL.md",
+      "budget": 2800,
+      "why": "v0.9.0：分支续写备料入口；四个时刻路由表与硬边界约束。"
+    },
+    {
+      "path": "skills/story-branch/references/canon-extraction.md",
+      "budget": 2200,
+      "why": "v0.9.0：analyze 时刻专用，只在 analyze 子命令时读取。"
+    },
+    {
+      "path": "skills/story-branch/references/creative-exploration.md",
+      "budget": 6500,
+      "why": "v0.9.0：explore 时刻专用，只在 explore 子命令时读取。创意变异引擎核心规则。"
+    },
+    {
+      "path": "skills/story-branch/references/branch-brief.md",
+      "budget": 1800,
+      "why": "v0.9.0：create 时刻专用，只在 create 子命令时读取。"
+    },
+    {
+      "path": "skills/story-branch/references/branch-handoff.md",
+      "budget": 1800,
+      "why": "v0.9.0：handoff 时刻专用，只在 handoff 子命令时读取。"
     }
   ],
   "paths": [
@@ -1723,7 +1748,7 @@
           "files": [
             "skills/story-import/references/import-special-cases.md"
           ],
-          "budget": 10100
+          "budget": 10200
         }
       ],
       "why": "v0.8.2：导入按作者确认点分时刻，作者的决定落盘到导入记录，时刻之间只靠文件交接。 +50：导入记录加「首期深拆」一栏、细纲进度改成「已验收到第 B 章」以便续跑整批重做；超过 200 章时简化摘要的固定落点。"
@@ -1741,7 +1766,7 @@
         {
           "label": "常规",
           "files": [],
-          "budget": 25550
+          "budget": 25650
         }
       ],
       "why": "v0.8.2：导入交给拆文流程，拆文自己后续各 Stage 另有登记。 +50：写明导入场景不用拆书流程自带的完工汇报，由导入的交付句代替（原先两套收尾会对作者说两遍、短篇还会引去写下一篇）。"
@@ -1758,14 +1783,14 @@
           "files": [
             "skills/story-import/references/structure-mapping-long.md"
           ],
-          "budget": 19250
+          "budget": 19350
         },
         {
           "label": "短篇",
           "files": [
             "skills/story-import/references/structure-mapping-short.md"
           ],
-          "budget": 14500
+          "budget": 14550
         }
       ],
       "why": "v0.8.2：结构迁移只读对应篇幅的映射规则。"
@@ -1797,7 +1822,7 @@
         {
           "label": "常规",
           "files": [],
-          "budget": 7800
+          "budget": 7850
         }
       ],
       "why": "v0.8.2：汇报只读汇报模板。 +50：收尾自检对全部细纲再跑一次契约检查（续跑整批重做后兜底）。"
@@ -2023,7 +2048,7 @@
         {
           "label": "常规",
           "files": [],
-          "budget": 9450
+          "budget": 9550
         }
       ],
       "why": "v0.8.2：细纲分批，每批的规则与本批数据由 build_outline_brief.py 拼包；数据表随批次变化不计入，由脚本把执行者一次要读的总量（包 + 缺摘要章的正文）卡在约 25K。 +50：写明按总量少排章与续跑整批重做；执行者不再整读每章约 4K 字的摘要，一批从 80K+ 降到 25K 内。"
@@ -2042,6 +2067,66 @@
         }
       ],
       "why": "v0.8.2：同上，交给 story-architect 在新上下文里做。"
+    },
+    {
+      "label": "分支续写·正典提取（analyze）",
+      "files": [
+        "skills/story-branch/SKILL.md",
+        "skills/story-branch/references/canon-extraction.md"
+      ],
+      "branches": [
+        {
+          "label": "常规",
+          "files": [],
+          "budget": 3500
+        }
+      ],
+      "why": "v0.9.0：从源作品提取正典。"
+    },
+    {
+      "label": "分支续写·创意探索（explore）",
+      "files": [
+        "skills/story-branch/SKILL.md",
+        "skills/story-branch/references/creative-exploration.md"
+      ],
+      "branches": [
+        {
+          "label": "常规",
+          "files": [],
+          "budget": 6000
+        }
+      ],
+      "why": "v0.9.0：创意变异引擎生成候选。"
+    },
+    {
+      "label": "分支续写·分支简报（create）",
+      "files": [
+        "skills/story-branch/SKILL.md",
+        "skills/story-branch/references/branch-brief.md"
+      ],
+      "branches": [
+        {
+          "label": "常规",
+          "files": [],
+          "budget": 3500
+        }
+      ],
+      "why": "v0.9.0：落定分支简报。"
+    },
+    {
+      "label": "分支续写·分支交接（handoff）",
+      "files": [
+        "skills/story-branch/SKILL.md",
+        "skills/story-branch/references/branch-handoff.md"
+      ],
+      "branches": [
+        {
+          "label": "常规",
+          "files": [],
+          "budget": 3500
+        }
+      ],
+      "why": "v0.9.0：播种写作工程设定与交接备忘。"
     }
   ],
   "path_ceiling": {

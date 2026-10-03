@@ -19,6 +19,7 @@ EXPECTED_SKILLS = frozenset(
     {
         "browser-cdp",
         "story",
+        "story-branch",
         "story-cover",
         "story-deslop",
         "story-import",
@@ -115,7 +116,7 @@ def discover_skills(root: Path, findings: list[Finding]) -> list[str]:
             findings,
             "root-skills",
             "skills",
-            f"expected the 13 root skills; missing={missing}, unexpected={unexpected}",
+            f"expected the 14 root skills; missing={missing}, unexpected={unexpected}",
         )
     return skills
 

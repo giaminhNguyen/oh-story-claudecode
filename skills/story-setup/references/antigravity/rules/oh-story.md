@@ -17,6 +17,7 @@ load its references only when that skill instructs you to do so.
 - Remove AI-writing patterns: `story-deslop`
 - Adversarial review: `story-review`
 - Import an existing story: `story-import`
+- Branch an existing story into a new premise: `story-branch`
 - Cover generation: `story-cover`
 - Ambiguous story intent: `story`
 - Project deployment/update: `story-setup`

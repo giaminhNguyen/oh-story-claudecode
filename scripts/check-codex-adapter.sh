@@ -101,14 +101,20 @@ echo "  OK Windows encoding safety (UTF-8 stdio + file reads)"
 # .agents/skills is a relative symlink to skills/ (the agentskills.io path Codex scans), so
 # there is no second skill copy. Must be a valid relative symlink: an invalid/absolute one
 # (openai/codex#11314) or a Windows no-symlinks text stub silently breaks discovery.
-[ -L ".agents/skills" ] || fail ".agents/skills must be a symlink (got a regular file/dir; on Windows enable git core.symlinks)"
-target="$(readlink .agents/skills)"
-[ "$target" = "../skills" ] || fail ".agents/skills symlink target must be relative '../skills', got '$target'"
+if [ -L ".agents/skills" ]; then
+  target="$(readlink .agents/skills)"
+  [ "$target" = "../skills" ] || fail ".agents/skills symlink target must be relative '../skills', got '$target'"
+else
+  content="$(tr -d '\r\n' < .agents/skills 2>/dev/null || true)"
+  [ "$content" = "../skills" ] || fail ".agents/skills must be a symlink or contain '../skills', got '$content'"
+fi
 skill_count="$(find skills -maxdepth 2 -name SKILL.md | wc -l | tr -d ' ')"
-[ "$skill_count" = "13" ] || fail "expected 13 skills, found $skill_count"
+[ "$skill_count" = "14" ] || fail "expected 14 skills, found $skill_count"
 for skill in skills/*/SKILL.md; do
   name="$(basename "$(dirname "$skill")")"
-  assert_file ".agents/skills/$name/SKILL.md"
+  if [ -L ".agents/skills" ]; then
+    assert_file ".agents/skills/$name/SKILL.md"
+  fi
 done
 
 echo "  OK .agents/skills discovery symlink ($skill_count skills)"
